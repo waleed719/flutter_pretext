@@ -10,3 +10,6 @@
 
 ## 1.0.1
  * Updated the URL for demo images and gif
+
+## 1.0.2
+ * Updated the URL for demo images and gif
