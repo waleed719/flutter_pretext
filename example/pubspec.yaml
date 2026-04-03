@@ -1,0 +1,17 @@
+name: pretext_example
+description: "A new Flutter project to demonstrate pretext."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_pretext:
+    path: ../
+
+flutter:
+  uses-material-design: true
