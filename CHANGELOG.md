@@ -6,3 +6,7 @@
 * Added `ShrinkWrapText` widget.
 * Added `BalancedText` widget for typographically pleasing orphans-free titles.
 * Fully decoupled from standard DOM, FFI, and expensive tree-rebuilding computations.
+
+
+## 1.0.1
+ * Updated the URL for demo images and gif

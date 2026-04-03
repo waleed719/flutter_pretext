@@ -2,7 +2,7 @@
 
 `flutter_pretext` is a blazingly fast, high-performance text dynamics engine and layout framework natively rebuilt for Flutter.
 
-![Obstacle Wrapping Demo](example/ss/1_v.gif)
+![Obstacle Wrapping Demo](https://raw.githubusercontent.com/waleedqamar/flutter_pretext/main/example/ss/1_v.gif)
 
 It is a direct Dart implementation and port of the groundbreaking JavaScript text dynamics library originally built by **@chenglou**. All credits for the underlying geometric abstractions, pure-code measuring mechanics, and cursor math layout capabilities go to [chenglou/pretext](https://github.com/chenglou/pretext). 
 
@@ -19,22 +19,22 @@ Pretext calculates lines mathematically behind the scenes *before* actually layi
 #### 1. `ObstacleTextFlow`
 Pass in multiple UI widget bounds (like floating `Positioned` icons) and watch the text shatter and wrap flawlessly around them on both sides instantly. 
 
-![Obstacle Wrapping Demo](example/ss/1.png)
+![Obstacle Wrapping Demo](https://raw.githubusercontent.com/waleedqamar/flutter_pretext/main/example/ss/1.png)
 
 #### 2. `ShrinkWrapText`
 Say goodbye to the "dead empty trailing space" bug in chat bubbles! `ShrinkWrap` computes the absolute geometric longest drawn string line and snaps your container size down perfectly.
 
-![ShrinkWrapText Demo](example/ss/2.png)
+![ShrinkWrapText Demo](https://raw.githubusercontent.com/waleedqamar/flutter_pretext/main/example/ss/2.png)
 
 #### 3. `BalancedText` 
 Say goodbye to awkward orphaned words hanging off your `H1` headlines. Drops in a binary-search container to ensure your multi-line headlines have geometrically balanced widths.
 
-![BalancedText Demo](example/ss/3.png)
+![BalancedText Demo](https://raw.githubusercontent.com/waleedqamar/flutter_pretext/main/example/ss/3.png)
 
 #### 4. Custom Mathematical Shapes & 60 FPS Animations
 You can bind your obstacle arrays to `AnimationController`s or custom geometric algorithms like Circular mappings. Text will dynamically flow over moving surfaces without ever dropping a frame.
 
-![CustomShapes Demo](example/ss/4_v.gif)
+![CustomShapes Demo](https://raw.githubusercontent.com/waleedqamar/flutter_pretext/main/example/ss/4_v.gif)
 
 ## Quick Start
 

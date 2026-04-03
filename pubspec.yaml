@@ -1,6 +1,6 @@
 name: flutter_pretext
 description: "A high-performance text dynamics engine and layout framework for native Flutter. mathematically wraps text natively around geometry, obstacles, and shapes."
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/waleed719/flutter_pretext
 environment:
   sdk: ^3.11.0
