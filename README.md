@@ -20,7 +20,9 @@ Pretext calculates lines mathematically behind the scenes *before* actually layi
 Pass in multiple UI widget bounds (like floating `Positioned` icons) and watch the text shatter and wrap flawlessly around them on both sides instantly. 
 
 ![Obstacle Wrapping Demo](https://raw.githubusercontent.com/waleed719/flutter_pretext/main/example/ss/1.png)
-![Obstacle Wrapping Demo Arabic](https://raw.githubusercontent.com/waleed719/flutter_pretext/main/example/ss/arabic_example.png)
+
+
+![Obstacle Wrapping Demo Arabic](https://raw.githubusercontent.com/waleed719/flutter_pretext/main/example/ss/arabic_example.gif)
 
 
 #### 2. `ShrinkWrapText`
