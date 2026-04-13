@@ -1,31 +1,36 @@
 import 'package:flutter/widgets.dart';
-import '../layout.dart';
+import 'package:flutter_pretext/src/text_style_font.dart';
+import 'package:dart_pretext/dart_pretext.dart';
 
 class ShrinkWrapText extends StatelessWidget {
   final String text;
   final TextStyle style;
   final double lineHeight;
-  
+
   const ShrinkWrapText(this.text, this.style, this.lineHeight, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final prepared = prepare(text, style);
-      
-      double maxW = measureNaturalWidth(prepared);
-      double naturalWidth = maxW > constraints.maxWidth ? constraints.maxWidth : maxW;
-      
-      final result = layoutWithLines(prepared, naturalWidth, lineHeight);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final prepared = prepare(text, TextStyleFont(style));
 
-      return SizedBox(
-        width: naturalWidth,
-        height: result.height,
-        child: CustomPaint(
-          painter: _LinesPainter(result.lines, style, lineHeight),
-        ),
-      );
-    });
+        double maxW = measureNaturalWidth(prepared);
+        double naturalWidth = maxW > constraints.maxWidth
+            ? constraints.maxWidth
+            : maxW;
+
+        final result = layoutWithLines(prepared, naturalWidth, lineHeight);
+
+        return SizedBox(
+          width: naturalWidth,
+          height: result.height,
+          child: CustomPaint(
+            painter: _LinesPainter(result.lines, style, lineHeight),
+          ),
+        );
+      },
+    );
   }
 }
 

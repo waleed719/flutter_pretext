@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_pretext/flutter_pretext.dart';
-import 'package:flutter_pretext/src/layout.dart';
 
 class ShapedTextDemo extends StatefulWidget {
   const ShapedTextDemo({super.key});
@@ -23,10 +22,10 @@ class _ShapedTextDemoState extends State<ShapedTextDemo> {
 
     late PreparedText prepared;
     try {
-      prepared = prepare(lorem, style);
+      prepared = prepare(lorem, TextStyleFont(style));
     } catch (_) {
       // In case prepare fails before initialization
-      prepared = prepare(" ", style);
+      prepared = prepare(" ", TextStyleFont(style));
     }
 
     return Center(

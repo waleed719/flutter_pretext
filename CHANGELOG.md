@@ -13,3 +13,6 @@
 
 ## 1.0.2
  * Updated the URL for demo images and gif
+
+## 1.1.0
+ * Removed flutter dependencies and made library available for standalone dart servers.

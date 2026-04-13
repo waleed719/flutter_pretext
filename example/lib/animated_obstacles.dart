@@ -13,21 +13,26 @@ class _AnimatedObstacleDemoState extends State<AnimatedObstacleDemo>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late PreparedText _preparedText;
-  final TextStyle _style = const TextStyle(
-      fontSize: 16, color: Colors.blueGrey, height: 1.2);
+  final TextStyle _style =
+      const TextStyle(fontSize: 16, color: Colors.blueGrey, height: 1.2);
 
   final String _demoText =
       "This screen showcases the raw performance of Pretext. We are running an animation loop at 60 FPS. Every frame, the bounding boxes of the Flutter Dash and the Bug move. Traditional flutter text layout would shatter or drop frames if pushed this hard, but because pretext leverages a direct mathematical iterator with layout constraints cached purely in memory, this recalculates completely natively every single frame without a sweat. Watch the words flow apart and merge back together dynamically like water around stones in a river. This unlocks completely new interactive design paradigms!";
 
   bool _isPlaying = true;
 
+  // The padding around the ObstacleTextFlow widget.
+  // Obstacle rects are computed in Stack-space; we must translate them
+  // into the CustomPainter's local coordinate space by subtracting this offset.
+  static const double _padding = 8.0;
+
   @override
   void initState() {
     super.initState();
-    _preparedText = prepare(_demoText, _style);
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(seconds: 4))
-      ..repeat();
+    _preparedText = prepare(_demoText, TextStyleFont(_style));
+    _controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 4))
+          ..repeat();
   }
 
   void _toggleAnimation() {
@@ -71,23 +76,34 @@ class _AnimatedObstacleDemoState extends State<AnimatedObstacleDemo>
               double bugX = 130 + math.cos(t + math.pi) * 90;
               double bugY = 220 + math.sin(t + math.pi) * 90;
 
+              // Rects in Stack-space (origin = top-left of the 350×450 container).
               Rect dashRect = Rect.fromLTWH(dashX, dashY, 80, 80);
               Rect bugRect = Rect.fromLTWH(bugX, bugY, 80, 80);
+
+              // The ObstacleTextFlow sits inside Padding(all: _padding), so its
+              // CustomPainter origin is offset by (_padding, _padding) relative
+              // to the Stack.  Translate the rects into the painter's local space
+              // so that the exclusion zones align with what the user sees.
+              final Offset localOffset = const Offset(_padding, _padding);
+              final Rect dashLocal = dashRect.shift(-localOffset);
+              final Rect bugLocal = bugRect.shift(-localOffset);
 
               return Stack(
                 children: [
                   Positioned.fill(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(_padding),
                       child: ObstacleTextFlow(
                         preparedText: _preparedText,
                         textStyle: _style,
-                        obstacles: [dashRect, bugRect],
+                        // Pass rects already in the painter's local coordinate space.
+                        obstacles: [dashLocal, bugLocal],
                         lineHeight: 16 * 1.2,
                         wrapBothSides: true,
                       ),
                     ),
                   ),
+                  // The icon widgets are positioned in Stack-space (correct).
                   Positioned.fromRect(
                     rect: dashRect,
                     child: const Center(

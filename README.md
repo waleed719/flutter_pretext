@@ -14,7 +14,7 @@ Flutter's standard `Text` widgets do an amazing job rendering strings, but custo
 
 Pretext calculates lines mathematically behind the scenes *before* actually laying out the heavy rendering tree.
 
-### 🌟 Features Available Today
+### Features Available Today
 
 #### 1. `ObstacleTextFlow`
 Pass in multiple UI widget bounds (like floating `Positioned` icons) and watch the text shatter and wrap flawlessly around them on both sides instantly. 

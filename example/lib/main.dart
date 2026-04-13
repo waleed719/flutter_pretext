@@ -4,6 +4,7 @@ import 'animated_obstacles.dart';
 import 'shrink_wrap.dart';
 import 'balanced_text.dart';
 import 'shaped_text.dart';
+import 'arabic_demo.dart';
 
 void main() {
   runApp(const PretextShowcaseApp());
@@ -40,6 +41,7 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
     const ShrinkWrapDemo(),
     const BalancedTextDemo(),
     const ShapedTextDemo(),
+    const ArabicTextDemo(),
   ];
 
   @override
@@ -65,6 +67,8 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
               icon: Icon(Icons.balance), label: 'Balanced Text'),
           BottomNavigationBarItem(
               icon: Icon(Icons.shape_line), label: 'Custom Shapes'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.language), label: 'Arabic (RTL)'),
         ],
       ),
     );

@@ -38,6 +38,7 @@ class _BalancedTextDemoState extends State<BalancedTextDemo> {
             style: TextStyle(color: Colors.grey)),
         Container(
           width: _width,
+          height: 100,
           margin: const EdgeInsets.all(16),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
@@ -52,7 +53,7 @@ class _BalancedTextDemoState extends State<BalancedTextDemo> {
           ),
           child: Align(
             alignment: Alignment.center,
-            child: BalancedText(title, perfectStyle, 32 * 1.1),
+            child: BalancedText(title, perfectStyle, 25 * 1.1),
           ),
         ),
         const Spacer(),

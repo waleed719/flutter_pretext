@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import '../layout.dart';
+import 'package:dart_pretext/dart_pretext.dart';
 
 class ObstacleTextFlow extends StatelessWidget {
   final PreparedText preparedText;
